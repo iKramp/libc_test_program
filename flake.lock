@@ -42,11 +42,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1782416357,
-        "narHash": "sha256-phFL1iq1KxWrTDa70lnH3DCLqsN7e6DLkww1TFlFoHc=",
+        "lastModified": 1787394371,
+        "narHash": "sha256-QMDX4JkHqLWqhup7SUDiyzjl9B2YErbIgXJrxtXitEY=",
         "ref": "refs/heads/master",
-        "rev": "3ff9c2d1e99d32c695316c3e48b5a7240de7e4d6",
-        "revCount": 16,
+        "rev": "618d7d64944abec91ae44b22179c3bf7650edcb6",
+        "revCount": 20,
         "type": "git",
         "url": "file:///home/nejc/dev/libc"
       },
@@ -73,11 +73,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "lastModified": 1787135253,
+        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
         "type": "github"
       },
       "original": {

@@ -17,7 +17,9 @@ CFLAGS += \
     -nostdlib \
 	-nostartfiles \
     -fno-stack-protector \
-    -static
+    -static \
+	-fno-tree-vectorize \
+	-fno-tree-slp-vectorize
 
 # Linker flags
 LDFLAGS += -nostdlib -static -nostartfiles
