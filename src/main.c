@@ -547,11 +547,29 @@ static void step(void) {
     }
 }
 
-int main(void) {
+void print_args(int argc, char **argv, FILE *tty_file) {
+    fprintf(tty_file, "argc: %d\n", argc);
+
+    //first print the argv, then pointers in argv, then strings in argv
+
+    fprintf(tty_file, "argv table addr: %p\n", (void *)argv);
+
+    for (int i = 0; i < argc; ++i) {
+        fprintf(tty_file, "argv[%d] addr: %p\n", i, (void *)argv[i]);
+    }
+
+    for (int i = 0; i < argc; ++i) {
+        fprintf(tty_file, "argv[%d]: %s\n", i, argv[i]);
+    }
+}
+
+int main(int argc, char **argv) {
     tty_file = fopen("/tty", "+");
     if (!tty_file) {
         fail();
     }
+
+    print_args(argc, argv, tty_file);
 
     fb_file = fopen("/fb", "+");
     if (!fb_file) {
