@@ -1,10 +1,16 @@
 #include <stdio.h>
 
+int add(int x, int y) {
+    return x + y;
+}
+
 int main() {
     char buffer[10];
 
     FILE *tty_read = fopen("/tty", "r");
     FILE *tty_write = fopen("/tty", "a");
+
+    add(5, 3); // Example usage of the add function
 
     if (tty_read == NULL || tty_write == NULL) {
         // Handle error
