@@ -1,36 +1,31 @@
 #include <stdio.h>
-
-int add(int x, int y) {
-    return x + y;
-}
+#include <syscalls/time.h>
+#include <syscalls/proc.h>
+#include "extra.h"
 
 int main() {
     char buffer[10];
 
-    FILE *tty_read = fopen("/tty", "r");
-    FILE *tty_write = fopen("/tty", "a");
+    int child_pid = fork();
 
-    add(5, 3); // Example usage of the add function
+    // FILE *tty_read = fopen("/tty", "r");
+    // FILE *tty_write = fopen("/tty", "a");
+    FILE *out = freopen("/tty", "a", stdout);
 
-    if (tty_read == NULL || tty_write == NULL) {
-        // Handle error
-        return -1;
+    if (child_pid < 0) {
+        printf("Failed to create child process.\n");
+        return 1;
+    } else if (child_pid == 0) {
+        // Child process
+        printf("Child process is running.\n");
+        // Perform child-specific tasks here
+    } else {
+        // Parent process
+        printf("Parent process created a child process (PID: %d).\n", child_pid);
+        // Perform parent-specific tasks here
     }
 
-    while (1) {
-        size_t bytes_read = fread(buffer, 1, sizeof(buffer), tty_read);
-        if (bytes_read > 0) {
-            fwrite(buffer, 1, bytes_read, tty_write);
-        }
-
-        if (feof(tty_read)) {
-            break;
-        }
-    }
     
-    fclose(tty_read);
-    fclose(tty_write);
-
     return 0;
 }
 
